@@ -1,4 +1,4 @@
-module moduleName #(
+module register_file #(
     parameter DATA_WIDTH = 32;
 ) (
     input clk,wr_en;
