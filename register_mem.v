@@ -1,10 +1,10 @@
 module register_file #(
-    parameter DATA_WIDTH = 32;
+    parameter DATA_WIDTH = 32
 ) (
-    input clk,wr_en;
-    input [4:0] rd_addr1,rd_addr2,rw_addr;
-    input [DATA_WIDTH-1:0] wr_data;
-    output [DATA_WIDTH-1:0] rd_data1,rd_data2;
+    input clk,wr_en,
+    input [4:0] rd_addr1,rd_addr2,rw_addr,
+    input [DATA_WIDTH-1:0] wr_data,
+    output [DATA_WIDTH-1:0] rd_data1,rd_data2
 );
 // Register file
 reg [DATA_WIDTH-1:0] register_file[0:31];

@@ -1,10 +1,10 @@
-module moduleName #(
-    parameter DATA_WIDTH = 32,ADDR_WIDTH = 32,MEM_SIZE = 64;
+module data_mem #(
+    parameter DATA_WIDTH = 32,ADDR_WIDTH = 32,MEM_SIZE = 64
 ) (
-    input clk,wr_en;
-    input [ADDR_WIDTH-1:0] rw_addr;
-    input [DATA_WIDTH-1:0] wr_data;
-    output [DATA_WIDTH-1:0] rd_data;
+    input clk,wr_en,
+    input [ADDR_WIDTH-1:0] rw_addr,
+    input [DATA_WIDTH-1:0] wr_data,
+    output [DATA_WIDTH-1:0] rd_data
 );
 // Data memory
 reg [DATA_WIDTH-1:0] memory[0:MEM_SIZE-1];
