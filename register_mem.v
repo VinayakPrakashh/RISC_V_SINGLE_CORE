@@ -16,6 +16,12 @@ initial begin
         register_file[i] = 0;
     end
 end
+always @(*) begin
+    register_file[0] = 32'd4;
+    register_file[1] = 32'd5;
+    register_file[2] = 32'd6;
+    register_file[3] = 32'd7;
+end
 //reg write logic
 always @(posedge clk) begin
     if (wr_en) begin register_file[rw_addr] <= wr_data; end

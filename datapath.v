@@ -11,10 +11,10 @@
     input  [31:0] instr,
     output [31:0] Mem_WrAddr, Mem_WrData,
     input  [31:0] ReadData,
-    output [31:0] Result
+    output [31:0] Result,SrcA, SrcB
 );
 wire [31:0] PCNext, PCPlus4, PCTarget,Auipc,lAuiPC,PCjalr;
-wire [31:0] ImmExt, SrcA, SrcB, WriteData, ALUResult;
+wire [31:0] ImmExt, WriteData, ALUResult;
 //PC
 mux_2_1 pcmux(.a(PCPlus4),.b(PCTarget),.sel(PCSrc),.y(PCNext));
 ff pcff(.clk(clk),.rst(reset),.d(PCNext),.q(PC));
