@@ -34,8 +34,6 @@ The RV32I ISA is designed to be extensible, allowing for the addition of standar
 
 This project provides a complete Verilog implementation of an RV32I CPU. Due to its non-pipelined design, the CPU executes one instruction per clock cycle. This simplifies the control logic and makes the design easier to understand and verify.
 
-![CPU Diagram](https://via.placeholder.com/800x400.png?text=CPU+Diagram)
-
 ## Key Features
 
 - Implements the RISC-V RV32I base integer instruction set.
