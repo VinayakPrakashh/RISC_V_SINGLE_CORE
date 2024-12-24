@@ -23,3 +23,54 @@ This project provides a complete Verilog implementation of an RV32I CPU. Due to 
 *   Implements the RISC-V RV32I base integer instruction set.
 *   Non-pipelined, single-cycle implementation.
 *   Verilog RTL code for easy simulation and synthesis.
+
+## Implemented Instructions
+
+This implementation includes the following RV32I instructions:
+
+**Load/Store:**
+
+*   `lb`: Load byte
+*   `lh`: Load halfword
+*   `lw`: Load word
+*   `lbu`: Load byte unsigned
+*   `lhu`: Load halfword unsigned
+*   `sb`: Store byte
+*   `sh`: Store halfword
+*   `sw`: Store word
+
+**Arithmetic/Logical:**
+
+*   `addi`: Add immediate
+*   `slli`: Shift left logical immediate
+*   `slti`: Set less than immediate
+*   `sltiu`: Set less than immediate unsigned
+*   `xori`: XOR immediate
+*   `srli`: Shift right logical immediate
+*   `srai`: Shift right arithmetic immediate
+*   `ori`: OR immediate
+*   `andi`: AND immediate
+*   `add`: Add
+*   `sub`: Subtract
+*   `sll`: Shift left logical
+*   `slt`: Set less than
+*   `sltu`: Set less than unsigned
+*   `xor`: XOR
+*   `srl`: Shift right logical
+*   `sra`: Shift right arithmetic
+*   `or`: OR
+*   `and`: AND
+*   `lui`: Load upper immediate
+*   `auipc`: Add upper immediate to PC
+
+**Control Flow:**
+
+*   `beq`: Branch if equal
+*   `bne`: Branch if not equal
+*   `blt`: Branch if less than
+*   `bge`: Branch if greater than or equal
+*   `bltu`: Branch if less than unsigned
+*   `bgeu`: Branch if greater than or equal unsigned
+*   `jal`: Jump and link
+*   `jalr`: Jump and link register
+
