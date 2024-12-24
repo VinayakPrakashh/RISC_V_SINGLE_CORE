@@ -40,6 +40,7 @@ This project provides a complete Verilog implementation of an RV32I CPU. Due to 
 
 - Implements the RISC-V RV32I base integer instruction set.
 - Non-pipelined, single-cycle implementation.
+- External Memory writing is available.
 - Verilog RTL code for easy simulation and synthesis.
 - **Instruction Memory:**
   - Size: 512 words (2KB)
