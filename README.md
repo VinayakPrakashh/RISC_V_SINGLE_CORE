@@ -13,3 +13,13 @@ The RV32I is the foundation of the RISC-V ISA family. It defines the core set of
 *   **System Instructions:** For interacting with the system environment.
 
 The RV32I ISA is designed to be extensible, allowing for the addition of standard extensions (like multiplication and division, atomic operations, compressed instructions, etc.) or custom extensions to tailor the processor for specific applications.
+
+## Project Overview
+
+This project provides a complete Verilog implementation of an RV32I CPU. Due to its non-pipelined design, the CPU executes one instruction per clock cycle. This simplifies the control logic and makes it easier to understand the fundamental principles of CPU operation.
+
+## Key Features
+
+*   Implements the RISC-V RV32I base integer instruction set.
+*   Non-pipelined, single-cycle implementation.
+*   Verilog RTL code for easy simulation and synthesis.
