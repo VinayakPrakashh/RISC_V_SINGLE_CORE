@@ -8,19 +8,35 @@
 	 input         jalr,
     output        Zero,ALUR31,
     output [31:0] PC,
-    input  [31:0] instr,
+    input  [31:0] Instr,
     output [31:0] Mem_WrAddr, Mem_WrData,
     input  [31:0] ReadData,
-    output [31:0] Result,SrcA, SrcB
+    output [31:0] Result,SrcA,SrcB
 );
-wire [31:0] PCNext, PCPlus4, PCTarget,Auipc,lAuiPC,PCjalr;
-wire [31:0] ImmExt, WriteData, ALUResult;
-//PC
-mux_2_1 pcmux(.a(PCPlus4),.b(PCTarget),.sel(PCSrc),.y(PCNext));
-ff pcff(.clk(clk),.rst(reset),.d(PCNext),.q(PC));
-adder pcadd4(.a(PC),.b(32'd4),.sum(PCPlus4));
-adder pcaddbranch(.a(PC), .b(ImmExt), .sum(PCTarget));
-register_file rf(.clk(clk),.wr_en(RegWrite),.rd_addr1(instr[19:15]),.rd_addr2(instr[24:20]),.rw_addr(instr[11:7]),.wr_data(Result),.rd_data1(SrcA),.rd_data2(WriteData));
-mux_2_1 alumux(.a(WriteData),.b(ImmExt),.sel(ALUSrc),.y(SrcB));
-imm iext(.instr(instr),.immSrc(ImmSrc),.Immext(ImmExt));
+wire [31:0] PCPlus4, PCTarget, PCNext,WriteData,ImmExt,ALUResult;
+wire [31:0] Auipc,lAuipc,rs1,rs2,rd,PCjalr;
+mux2  pcmux(PCPlus4, PCTarget, PCSrc, PCNext);
+mux2 jalrmux(PCNext, ALUResult, jalr, PCjalr);
+reset_ff pcff(clk, reset,PCjalr,PC);
+adder pcadd4(PC, 32'd4, PCPlus4);
+
+reg_file  rf (clk, RegWrite, rs1, rs2, rd, Result, SrcA, WriteData);
+imm_extend imm( Instr[31:7], ImmSrc,ImmExt);
+adder pcaddbranch(PC, ImmExt, PCTarget);
+mux2  srcbmux(WriteData, ImmExt, ALUSrc, SrcB);
+
+alu alu( SrcA, SrcB, ALUControl, ALUResult, Zero, Instr[30], Instr[12]);
+adder auipcadder({Instr[31:12],12'b0},PC,Auipc);
+mux2 luipcmux({Instr[31:12],12'b0},Auipc,Instr[5],lAuipc);
+mux4 Resmux(ALUResult, ReadData, PCPlus4,lAuipc, ResultSrc, Result);
+
+assign Mem_WrAddr = ALUResult;
+assign Mem_WrData = WriteData;
+assign ALUR31 = ALUResult[31];
+
+
+//instr assignments
+assign rs1 = Instr[19:15];
+assign rs2 = Instr[24:20];
+assign rd = Instr[11:7];
 endmodule

@@ -1,19 +1,24 @@
 module controller (
-    input [6:0] op,
-    input [2:0] funct3,
-    input funct7b5,
-    input Zero,ALUR31,
-    output PCSrc,RegWrite,MemWrite,jump,ALUSrc,jalr,
-    output [1:0] ResultSrc,
-    output [1:0] immSrc,
-    output [2:0] AluControl
-
+    input [6:0]  op,
+    input [2:0]  funct3,
+    input        funct7b5,
+    input        Zero,ALUR31,
+    output       [1:0] ResultSrc,
+    output       MemWrite,
+    output       PCSrc, ALUSrc,
+    output       RegWrite, Jump, jalr,
+    output [1:0] ImmSrc,
+    output [2:0] ALUControl
+	 
 );
-wire [1:0] aluOp;
-wire Branch;
-    main_decoder md(.op(op),.funct3(funct3),.Zero(Zero),.ALUR31(ALUR31),
-                    .RegWrite(RegWrite),.MemWrite(MemWrite),.ALUSrc(ALUSrc),.ResultSrc(ResultSrc),
-                    .immSrc(immSrc),.Branch(Branch),.jump(jump),.jalr(jalr),.aluOp(aluOp));
-    alu_decoder ad(.opb5(op[5]),.funct3(funct3),.funct7b5(funct7b5),.aluOp(aluOp),.AluControl(AluControl));
-assign PCSrc = Branch | jump;
+wire [1:0] ALUOp;
+wire       Branch;
+
+main_decoder    md (op, funct3,Zero,ALUR31,ResultSrc, MemWrite, Branch,
+                    ALUSrc, RegWrite, Jump,jalr, ImmSrc, ALUOp);
+
+alu_decoder     ad (op[5], funct3, funct7b5, ALUOp, ALUControl);
+
+
+assign PCSrc = Branch | Jump;
 endmodule
