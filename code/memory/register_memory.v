@@ -19,11 +19,6 @@ end
 always @(posedge clk) begin
     if (wr_en) reg_file_arr[wr_addr] <= wr_data;
 end
-initial begin
-reg_file_arr[0] = 1;
-reg_file_arr[4] = 1;
-
-end
 // register file read logic (combinational)
 assign rd_data1 = ( rd_addr1 != 0 ) ? reg_file_arr[rd_addr1] : 0;
 assign rd_data2 = ( rd_addr2 != 0 ) ? reg_file_arr[rd_addr2] : 0;
