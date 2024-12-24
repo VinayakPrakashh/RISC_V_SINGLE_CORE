@@ -105,6 +105,8 @@ This project provides a complete Verilog implementation of an RV32I CPU. Due to 
 ![image](https://github.com/user-attachments/assets/44a49023-8b71-45d4-824e-072d31c80c3b)
 ## Schematic
 ![Screenshot 2024-12-24 133927](https://github.com/user-attachments/assets/d06557cc-97f7-4eb0-95e0-714caf2b0f29)
+## Simulation Results
+![Screenshot 2024-12-24 135240](https://github.com/user-attachments/assets/c68604cd-ef3f-4d8c-acad-6f60ee74566f)
 
 ## Getting Started
 
