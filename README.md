@@ -102,6 +102,11 @@ This project provides a complete Verilog implementation of an RV32I CPU. Due to 
 - `jal`: Jump and link
 - `jalr`: Jump and link register
 
+## CPU Diagram
+![image](https://github.com/user-attachments/assets/44a49023-8b71-45d4-824e-072d31c80c3b)
+## Schematic
+![Screenshot 2024-12-24 133927](https://github.com/user-attachments/assets/d06557cc-97f7-4eb0-95e0-714caf2b0f29)
+
 ## Getting Started
 
 To get started with this project, you'll need to have a Verilog simulator installed. You can use tools like ModelSim, Xilinx Vivado, or any other Verilog simulation software.
@@ -115,3 +120,4 @@ Clone the repository:
 ```bash
 git clone https://github.com/VinayakPrakashh/RISC_V_SINGLE_CORE.git
 cd RISC_V_SINGLE_CORE
+
