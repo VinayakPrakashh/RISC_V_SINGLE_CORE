@@ -23,6 +23,21 @@ This project provides a complete Verilog implementation of an RV32I CPU. Due to 
 *   Implements the RISC-V RV32I base integer instruction set.
 *   Non-pipelined, single-cycle implementation.
 *   Verilog RTL code for easy simulation and synthesis.
+*   **Instruction Memory:**
+    *   Size: 512 words (2KB)
+    *   Data Width: 32 bits
+    *   Address Width: 32 bits
+    *   Initialization: Loads instructions from "test.hex" file.
+*   **Data Memory:**
+    *   Size: 64 words (256 Bytes)
+    *   Data Width: 32 bits
+    *   Address Width: 32 bits
+    *   Sign extension for byte and halfword loads.   
+*   **Register File:**
+    *   Number of Registers: 32 (x0-x31)
+    *   Data Width: 32 bits
+    *   2 read ports, 1 write port.
+    *   Register x0 is hardwired to 0.
 
 ## Implemented Instructions
 
