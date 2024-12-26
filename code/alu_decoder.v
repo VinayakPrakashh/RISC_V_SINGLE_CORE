@@ -11,7 +11,7 @@ always @(*) begin
     case (ALUOp)
         2'b00: ALUControl = 3'b000;             // addition
         2'b01: ALUControl = 3'b001;             // subtraction
-            case (funct3) // R-type or I-type ALU
+        2'b10: begin case (funct3) // R-type or I-type ALU
                 3'b000: begin
                     // R-type subtract
                     if   (funct7b5 & opb5) ALUControl = 3'b001; //sub
@@ -26,6 +26,7 @@ always @(*) begin
                 3'b111:  ALUControl = 3'b010; // and, andi
                 default: ALUControl = 3'bxxx; // ???
             endcase
+        end
     endcase
 end
 
