@@ -23,10 +23,10 @@ always @(*) begin
 		  case(funct3)
 		  3'b000: Takebranch =Zero;//beq
 		  3'b001: Takebranch =!Zero;//bne
-		  3'b111: Takebranch =!ALUR31;//blt
-		  3'b101: Takebranch =!ALUR31;//bltu
-		  3'b100: Takebranch =ALUR31;//bge
-		  3'b110: Takebranch =ALUR31;//bgeu
+		  3'b111: Takebranch =!ALUR31;//bge
+		  3'b101: Takebranch =!ALUR31;//bgeu
+		  3'b100: Takebranch =ALUR31;//blt
+		  3'b110: Takebranch =ALUR31;//bltu
 		  endcase
 		  end
         7'b0010011: controls = 11'b1_00_1_0_00_10_0_0; // I–type ALU

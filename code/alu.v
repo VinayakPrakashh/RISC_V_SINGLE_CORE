@@ -14,6 +14,7 @@ always @(*) begin
         3'b011: Result = a | b; // OR
         3'b100: Result = a << b[4:0]; // SLL
         3'b101: case (funct3_bit)
+
             1'b0:begin//SLT
                 if(a[31]!= b[31]) Result = a[31] ?1:0; 
                 else Result = (a < b) ? 1:0;
@@ -30,4 +31,5 @@ always @(*) begin
 end
 
 assign Zero = (Result == 0)?1:0;
+
 endmodule
