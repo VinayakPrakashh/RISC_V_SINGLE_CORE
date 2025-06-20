@@ -134,7 +134,7 @@ Hence, the cycle time of the single-cycle processor is:
 
 `t_ALU` - Delay of the Arithmetic Logic Unit (ALU)
 
-
+`t_RFsetup` - Setup time required to write data into a register
 
 ## Getting Started
 
