@@ -140,6 +140,27 @@ In most implementation technologies, the ALU, memory, and register file are subs
 
 `T_cycle = t_pcq_PC + 2t_mem + t_RFread + t_ALU + t_mux + t_RFsetup`
 
+## Max frequency calculation
+
+## ⏱️ Table: Delay of Circuit Elements (Typical)
+
+| Element                   | Parameter      | Delay (ps) |
+|---------------------------|----------------|------------|
+| Register clk-to-Q         | `t_pcq`        | 40         |
+| Register setup            | `t_setup`      | 50         |
+| Multiplexer               | `t_mux`        | 30         |
+| AND-OR gate               | `t_AND-OR`     | 20         |
+| ALU                       | `t_ALU`        | 120        |
+| Decoder (control unit)    | `t_dec`        | 25         |
+| Extend unit               | `t_ext`        | 35         |
+| Memory read               | `t_mem`        | 200        |
+| Register file read        | `t_RFread`     | 100        |
+| Register file setup       | `t_RFsetup`    | 60         |
+
+Maximum delay (Critical path):
+`Tc_single` = 40 + 2(200) + 100 + 120 + 30 + 60 = 750 ps
+​
+
 ## Getting Started
 
 To get started with this project, you'll need to have a Verilog simulator installed. You can use tools like ModelSim, Xilinx Vivado, or any other Verilog simulation software.
