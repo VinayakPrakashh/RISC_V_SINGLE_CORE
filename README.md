@@ -158,7 +158,7 @@ In most implementation technologies, the ALU, memory, and register file are subs
 | Register file setup       | `t_RFsetup`    | 60         |
 
 Maximum delay (Critical path):
-`Tc_single` = 40 + 2(200) + 100 + 120 + 30 + 60 = 750 ps
+`Tc_single` = 40 + 2(200) + 100 + 120 + 30 + 60 = `750 ps`
 ​
 
 ## Getting Started
