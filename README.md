@@ -136,6 +136,10 @@ Hence, the cycle time of the single-cycle processor is:
 
 `t_RFsetup` - Setup time required to write data into a register
 
+In most implementation technologies, the ALU, memory, and register file are substantially slower than other combinational blocks. So the delay becomes:
+
+`T_cycle = t_pcq_PC + 2t_mem + t_RFread + t_ALU + t_mux + t_RFsetup`
+
 ## Getting Started
 
 To get started with this project, you'll need to have a Verilog simulator installed. You can use tools like ModelSim, Xilinx Vivado, or any other Verilog simulation software.
