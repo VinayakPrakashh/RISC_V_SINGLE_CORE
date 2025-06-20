@@ -118,7 +118,23 @@ Each instruction in the single-cycle processor takes one clock cycle, so the clo
 - Write back to register file
 
 Hence, the cycle time of the single-cycle processor is:
-`T_cycle = t_pcq + t_mem + t_RFread + t_ALU + t_mux + t_RFsetup`
+`T_cycle = t_pcq_PC + t_mem + max(t_RFread, t_dec + t_ext + t_mux) + t_ALU + t_mem + t_mux + t_RFsetup`
+
+`t_pcq_PC` - Clock-to-Q delay of the Program Counter register
+
+`t_mem` - Instruction or data memory access delay
+
+`t_RFread` - Register file read delay (used to fetch operands)
+
+`t_dec` - Instruction decode delay from the control unit
+
+`t_ext` - Immediate extension delay (e.g., sign-extension of immediates)
+
+`t_mux` - Delay of multiplexers used to select inputs or outputs
+
+`t_ALU` - Delay of the Arithmetic Logic Unit (ALU)
+
+
 
 ## Getting Started
 
