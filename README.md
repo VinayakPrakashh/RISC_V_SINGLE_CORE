@@ -108,7 +108,7 @@ This project provides a complete Verilog implementation of an RV32I CPU. Due to 
 ## Simulation Results
 ![Screenshot 2024-12-24 135240](https://github.com/user-attachments/assets/c68604cd-ef3f-4d8c-acad-6f60ee74566f)
 # Performace Analysis
-Each instruction in the single-cycle processor takes one clock cycle, so the clock cycles per instruction (CPI) is 1.  In the processor, the lw instruction is the most time-consuming and involves the critical path. In a single-cycle processor, every instruction must finish within one clock cycle, so the clock cycle must be long enough to handle the slowest instruction (lw). It involves:\
+Each instruction in the single-cycle processor takes one clock cycle, so the clock cycles per instruction (CPI) is 1.  In the processor, the lw instruction is the most time-consuming and involves the critical path. In a single-cycle processor, every instruction must finish within one clock cycle, so the clock cycle must be long enough to handle the slowest instruction (lw). It involves:
 
 - Instruction fetch from memory
 - Register file read
