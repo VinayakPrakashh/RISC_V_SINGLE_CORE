@@ -1,0 +1,13 @@
+
+program.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <.text>:
+   0:	00300113          	li	sp,3
+   4:	00300193          	li	gp,3
+   8:	00311463          	bne	sp,gp,0x10
+   c:	0000006f          	j	0xc
+  10:	01400213          	li	tp,20
+  14:	00c00293          	li	t0,12
