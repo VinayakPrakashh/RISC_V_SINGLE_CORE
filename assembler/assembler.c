@@ -216,7 +216,7 @@ void process_line(char *line, FILE *out) {
         }
     }
 
-    // ---------- I-type (loads + jalr) ----------
+    // ---------- I-type (no shift) ----------
     if (sscanf(line, "%s x%d, %d(x%d)", instr, &rd, &imm, &rs1) == 4) {
         for (int i = 0; i < itable_size; i++) {
             if (strcmp(instr, itype_table[i].name) == 0) {
@@ -234,7 +234,7 @@ void process_line(char *line, FILE *out) {
         }
     }
 
-    // ---------- I-type (addi, slti, etc.) ----------
+    // ---------- I-type (shift) ----------
     if (sscanf(line, "%s x%d, x%d, %d", instr, &rd, &rs1, &imm) == 4) {
         for (int i = 0; i < itable_size; i++) {
             if (strcmp(instr, itype_table[i].name) == 0) {
@@ -304,7 +304,7 @@ void process_line(char *line, FILE *out) {
 int main() {
     FILE *fp, *out;
     char line[256];
-
+// open the input file
     fp = fopen("program.asm", "r");
     if (fp == NULL) {
         printf("Error: cannot open input file\n");
@@ -312,8 +312,8 @@ int main() {
     }
 else{
     printf("Input file found\n");
-}
-
+    }
+// Open or create output file
     out = fopen("program.hex", "w");
     if (out == NULL) {
         printf("Output file created\n");
@@ -323,6 +323,7 @@ else{
     else{
         printf("Output file opened\n");
     }
+// process file
     printf("Processing line by line...\n");
     while (fgets(line, sizeof(line), fp)) {
         process_line(line, out);
